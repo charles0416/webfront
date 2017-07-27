@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="text-center mt-2">
+    <img src="../../assets/SalesHelper_180.png" style="width: 100px;height:100px" class="rounded" alt="Sales Helper v2">
+  </div>
+  <form (ngSubmit)="onSubmit()" class="form-signin" #f="ngForm">
+    <div class="row">
+      <div class="col">
+        <h4 class="form-signin-heading">Sign in</h4>
+      </div>
+    </div>
+     <alert></alert>
+    <div class="row">
+      <div class="col">
+        <input class="form-control" [(ngModel)]="user.email" name="email" placeholder="Email address" required #email="ngModel" />
+        <div *ngIf="email.dirty && email.invalid" class="alert">Email is required</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="password" required #password="ngModel"
+        />
+        <div *ngIf="password.dirty && password.invalid" class="alert">Password is required</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me" [(ngModel)]="rememberUser" name="remember" #remember="ngModel"> Remember me
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col justify-content-center">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="f.invalid">Sign in</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center"><a [routerLink]="['/register']">Register</a></div>
+    </div>
+  </form>
+
+</div>
+<!-- /container -->

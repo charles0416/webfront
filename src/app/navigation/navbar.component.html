@@ -1,0 +1,58 @@
+<div class="row navbar-light bg-faded">
+    <div class="col-2 col-sm-4 col-md-3 col-lg-2 text-nowrap align-self-center">
+        <div class="dropdown text-nowrap">
+            <i class="material-icons align-middle">store</i>
+            <a class="dropdown-toggle " href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">{{currentShop.name}}</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <div *ngFor="let shop of shops" class="text-nowrap">
+                    <div><a class="dropdown-item" [routerLink]="[{ outlets: { main: ['dashboard'] } }]"><i class="material-icons align-middle">store</i>{{shop.name}}</a></div>
+                </div>
+                <hr/>
+                <div><a class="dropdown-item" [routerLink]="[{ outlets: { main: ['shop'] } }]"><i class="material-icons align-middle">add</i>Create a new shop</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-sm-4 col-md-6 col-lg-8">
+        <nav *ngIf="currentShop" class="navbar navbar-toggleable-md navbar-light bg-faded">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+  </button>
+            <a class="nav-link" [routerLink]="[{ outlets: { main: ['dashboard'] } }]"><i class="material-icons">home</i></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="[{ outlets: { main: ['orderlist'] } }]">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Stock</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="[{ outlets: { main: ['customers'] } }]">Customers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Reports</a>
+                    </li>
+                </ul>
+                <form *ngIf="showSearchBox" class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+    <div class="col-2 col-sm-4 col-md-3 col-lg-2 align-self-center text-nowrap ">
+        <div>
+            <div class="dropdown">
+                <i class="material-icons align-middle">face</i>
+                <a class="dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{currentUser.givenName}}</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <div><a class="dropdown-item" [routerLink]="[{ outlets: { main: ['settings'] } }]"><i class="material-icons align-middle">settings</i>Settings</a></div>
+                    <div><a class="dropdown-item" [routerLink]="['/help']"><i class="material-icons align-middle">help_outline</i>Help</a></div>
+                    <hr/>
+                    <div><a class="dropdown-item" [routerLink]="['/signout']" href="#"><i class="material-icons align-middle">exit_to_app</i>Exit</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="card">
+        <div *ngFor="let order of orders" class="card-block">
+            <h4 class="card-title">Order</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">${{order.amount}}</p>
+            <a href="#" class="card-link">Add Item</a>
+            <a href="#" class="card-link">Details</a>
+        </div>
+    </div>
+</div>
